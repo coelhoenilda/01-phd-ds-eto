@@ -8,17 +8,29 @@ experiment:
   random_seed: 42
 
 data:
-  input_path: "data/processed/clima_et_diario.csv"
-  date_column: "data"
+  input_path: "data/processed/F3_setelagoasINMET.txt"
+  date_column: "Data"
   required_columns:
-    - "data"
-    - "t_max_c"
-    - "t_min_c"
-    - "et0_mm"
+    - "Data"
+    - "etoFAOPM"
+    - "etoHS"
+    - "Rs"
+    - "MinTemp"
+    - "MaxTemp"
+    - "Precipitation"
+    - "Wind"
+    - "RH"
+    - "Pressure"
   physical_bounds:
-    t_max_c: {min: -10.0, max: 50.0}
-    t_min_c: {min: -20.0, max: 40.0}
-    et0_mm: {min: 0.0, max: 20.0}
+    etoFAOPM: {min: 1, max: 12.0}
+    etoHS: {min: 1, max: 12.0}
+    Rs: {min: 0.1, max: 50000.0}
+    MinTemp: {min: 1, max: 45.0}
+    MaxTemp: {min: 1, max: 45.0}
+    Precipitation: {min: 1, max: 45.0}
+    Wind: {min: 1, max: 45.0}
+    RH: {min: 1, max: 45.0}
+    Pressure: {min: 1, max: 45.0}
 
 quality_gates:
   max_missing_ratio: 0.05          # até 5% de ausências por coluna exigida
