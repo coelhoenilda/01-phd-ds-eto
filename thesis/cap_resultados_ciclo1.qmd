@@ -16,27 +16,28 @@ jupyter: python3
 
 Este capítulo apresenta os resultados da execução baseline do pipeline, avaliando a aderência aos critérios de qualidade (*quality gates*) dos dados e o desempenho inicial do modelo preditivo antes de introduzir refinamentos nos ciclos subsequentes.
 
-# ```python
-# #| label: setup-load-artifacts
-# #| echo: false
-# import json
-# from pathlib import Path
-# import pandas as pd
-# 
-# # Garante a conversão correta do parâmetro da pasta de execução
-# run_path = Path(params["run_dir"])
-# quality_path = run_path / "quality_report.json"
-# metrics_path = run_path / "metrics.json"
-# 
-# # Carrega o relatório de qualidade de dados de forma segura
-# if quality_path.exists():
-#     quality_data = json.loads(quality_path.read_text(encoding="utf-8"))
-# else:
-#     quality_data = {}
-# 
-# # Carrega as métricas do modelo treinado de forma segura
-# if metrics_path.exists():
-#     metrics_data = json.loads(metrics_path.read_text(encoding="utf-8"))
-# else:
-#     metrics_data = {}
-# ```
+# ```{python}
+
+#| label: setup-load-artifacts
+#| echo: false
+ import json
+ from pathlib import Path
+ import pandas as pd
+ 
+ # Garante a conversão correta do parâmetro da pasta de execução
+ run_path = Path(params["run_dir"])
+ quality_path = run_path / "quality_report.json"
+ metrics_path = run_path / "metrics.json"
+ 
+ # Carrega o relatório de qualidade de dados de forma segura
+ if quality_path.exists():
+     quality_data = json.loads(quality_path.read_text(encoding="utf-8"))
+ else:
+     quality_data = {}
+ 
+ # Carrega as métricas do modelo treinado de forma segura
+ if metrics_path.exists():
+     metrics_data = json.loads(metrics_path.read_text(encoding="utf-8"))
+ else:
+     metrics_data = {}
+ ```
