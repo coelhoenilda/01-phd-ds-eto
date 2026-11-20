@@ -1,12 +1,35 @@
-et-pipeline-tese/
-├── config/
-│   └── cycle_01_baseline.yaml
-├── src/
-│   └── quality_check.py
-├── notebooks/
-│   └── 01_rodar_ciclo.ipynb
-├── outputs/
-│   └── runs/
-├── thesis/
-│   └── cap_resultados_ciclo1.qmd
-└── .gitignore
+experiment:
+  cycle_id: "cycle_01"
+  run_id: "r01"
+  hypothesis: "Modelo baseline com variáveis mínimas atende aos limiares mínimos de qualidade e supera o método de referência."
+  target_variable: "et0_mm"
+  reference_method: "fao_pm"
+  validation_method: "time_series_split"
+  random_seed: 42
+
+data:
+  input_path: "data/processed/clima_et_diario.csv"
+  date_column: "data"
+  required_columns:
+    - "data"
+    - "t_max_c"
+    - "t_min_c"
+    - "et0_mm"
+  physical_bounds:
+    t_max_c: {min: -10.0, max: 50.0}
+    t_min_c: {min: -20.0, max: 40.0}
+    et0_mm: {min: 0.0, max: 20.0}
+
+quality_gates:
+  max_missing_ratio: 0.05          # até 5% de ausências por coluna exigida
+  max_out_of_bounds_ratio: 0.01  # até 1% de valores fora da faixa física
+  min_records: 365                 # mínimo de registros diários para rodar o ciclo
+  fail_on_gate_breach: true        # interrompe o pipeline se reprovar
+
+evaluation_thresholds:
+  max_rmse_mm_day: 1.50
+  max_mae_mm_day: 1.10
+  min_r2: 0.70
+
+outputs:
+  base_runs_dir: "outputs/runs"
