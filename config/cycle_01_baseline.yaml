@@ -2,7 +2,7 @@ experiment:
   cycle_id: "cycle_01"
   run_id: "r01"
   hypothesis: "Modelo baseline com variáveis mínimas atende aos limiares mínimos de qualidade e supera o método de referência."
-  target_variable: "et0_mm"
+  target_variable: "etoFAOPM"
   reference_method: "fao_pm"
   validation_method: "time_series_split"
   random_seed: 42
