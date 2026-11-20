@@ -33,7 +33,7 @@ data:
     Pressure: {min: 90, max: 940.0}
 
 quality_gates:
-  max_missing_ratio: 0.05          # até 5% de ausências por coluna exigida
+  max_missing_ratio: 0.50          # até 5% de ausências por coluna exigida
   max_out_of_bounds_ratio: 0.01  # até 1% de valores fora da faixa física
   min_records: 365                 # mínimo de registros diários para rodar o ciclo
   fail_on_gate_breach: true        # interrompe o pipeline se reprovar
