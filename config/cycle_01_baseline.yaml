@@ -2,35 +2,23 @@ experiment:
   cycle_id: "cycle_01"
   run_id: "r01"
   hypothesis: "Modelo baseline com variáveis mínimas atende aos limiares mínimos de qualidade e supera o método de referência."
-  target_variable: "etoFAOPM"
+  target_variable: "et0_mm"
   reference_method: "fao_pm"
   validation_method: "time_series_split"
   random_seed: 42
 
-
-  input_path: "data/processed/F3_setelagoasINMET.txt"
-  date_column: "Data"
+data:
+  input_path: "data/processed/clima_et_diario.csv"
+  date_column: "data"
   required_columns:
-    - "Data"
-    - "etoFAOPM"
-    - "etoHS"
-    - "Rs"
-    - "MinTemp"
-    - "MaxTemp"
-    - "Precipitation"
-    - "Wind"
-    - "RH"
-    - "Pressure"
+    - "data"
+    - "t_max_c"
+    - "t_min_c"
+    - "et0_mm"
   physical_bounds:
-    etoFAOPM: {min: 1, max: 12.0}
-    etoHS: {min: 1, max: 12.0}
-    Rs: {min: 0.1, max: 50000.0}
-    MinTemp: {min: 1, max: 45.0}
-    MaxTemp: {min: 1, max: 45.0}
-    Precipitation: {min: 1, max: 45.0}
-    Wind: {min: 1, max: 45.0}
-    RH: {min: 1, max: 45.0}
-    Pressure: {min: 1, max: 45.0}
+    t_max_c: {min: -10.0, max: 50.0}
+    t_min_c: {min: -20.0, max: 40.0}
+    et0_mm: {min: 0.0, max: 20.0}
 
 quality_gates:
   max_missing_ratio: 0.05          # até 5% de ausências por coluna exigida
