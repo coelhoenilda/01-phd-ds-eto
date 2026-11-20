@@ -1,0 +1,30 @@
+---
+title: "Resultados do Ciclo 1 (Baseline) — Qualidade e Predição"
+format:
+  html:
+    toc: true
+    code-fold: true
+  pdf:
+    toc: true
+params:
+  run_dir: "../outputs/runs/cycle_01_r01"
+jupyter: python3
+---
+
+## Objetivo do Ciclo
+
+Este capítulo apresenta os resultados da execução baseline do pipeline, avaliando a aderência aos critérios de qualidade (*quality gates*) dos dados e o desempenho inicial do modelo preditivo antes de introduzir refinamentos nos ciclos subsequentes.
+
+```{python}
+#| label: setup-load-artifacts
+#| echo: false
+import json
+from pathlib import Path
+import pandas as pd
+
+run_path = Path(params["run_dir"])
+quality_path = run_path / "quality_report.json"
+metrics_path = run_path / "metrics.json"
+
+quality_data = json.loads(quality_path.read_text(encoding="utf-8")) if quality_path.exists() else {}
+metrics_data = json.loads(metrics_path.read_text(encoding="utf-8")) if metrics_path.exists() else {}

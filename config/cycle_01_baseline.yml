@@ -1,0 +1,12 @@
+et-pipeline-tese/
+├── config/
+│   └── cycle_01_baseline.yaml
+├── src/
+│   └── quality_check.py
+├── notebooks/
+│   └── 01_rodar_ciclo.ipynb
+├── outputs/
+│   └── runs/
+├── thesis/
+│   └── cap_resultados_ciclo1.qmd
+└── .gitignore
