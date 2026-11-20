@@ -24,7 +24,7 @@ data:
   physical_bounds:
     etoFAOPM: {min: 1, max: 12.0}
     etoHS: {min: 1, max: 12.0}
-    Rs: {min: 3600, max: 40000.0}
+    Rs: {min: 0, max: 40000.0}
     MinTemp: {min: 5, max: 24.0}
     MaxTemp: {min: 14, max: 35.0}
     Precipitation: {min: 0, max: 100.0}
